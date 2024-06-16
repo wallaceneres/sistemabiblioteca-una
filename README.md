@@ -26,7 +26,6 @@ O projeto é dividido nas seguintes camadas:
 ## Requisitos
 
 - **Java**: Versão 8 ou superior
-- **Maven**
 - **MySQL**
 
 ## Configuração do Ambiente
@@ -43,6 +42,7 @@ O projeto é dividido nas seguintes camadas:
         CREATE DATABASE sistemabiblioteca;
         ```
     - Importe o arquivo `SistemaBiblioteca.sql` para criar as tabelas necessárias.
+    - Talvez seja necessario configurar o login e senha do MySQL no `ConnectionSQL.java` em \utils
 
 ## Execução do Projeto
 
@@ -56,15 +56,15 @@ Ou execute o *Main.java*
 
 **Professora Rafaela:**
 
-- Alan Junio Vila Nova Pereira
-- Hugo Henrique Rodrigues de Almeida
-- João Victor
-- Tiago de Britto Antunes
-- Wallace Neres Pereira de Souza
+- Alan Junio Vila Nova Pereira - 42025255
+- Hugo Henrique Rodrigues de Almeida - 422140627
+- João Victor Alves - 422142090
+- Tiago de Britto Antunes - 
+- Wallace Neres Pereira de Souza - 422220377
 
 
 **Professor Daniel:**
 
-- Gabriel Galdino
-- Lucas Marques da Silva
-- César Martins
+- Gabriel Silva Galdino - 42124664
+- Lucas Marques da Silva - 42125351
+- César Augusto Ferreira Martins
