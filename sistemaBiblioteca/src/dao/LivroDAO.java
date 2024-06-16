@@ -13,6 +13,7 @@ import java.util.List;
 import models.Credenciais;
 import models.Livro;
 import utils.ConnectionSQL;
+import utils.bubbleSort;
 
 public class LivroDAO {
     private Connection conn;
@@ -226,21 +227,30 @@ public class LivroDAO {
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
 
-            // Imprimir cabeçalhos
-            System.out.printf("%-50s %-20s %-15s %-25s %-10s%n", 
-                              "Título", "Autor", "ISBN", "Categoria", "Quantidade");
-            System.out.println("------------------------------------------------------------------------------------------------");
+            List<Livro> livros = new ArrayList<>();
 
             while (rs.next()) {
                 String titulo = rs.getString("titulo");
                 String autor = rs.getString("autor");
                 String isbn = rs.getString("isbn");
                 String categoria = rs.getString("categoria");
-                int quantidade = rs.getInt("quantidade");
+                String quantidade = Integer.toString(rs.getInt("quantidade"));
 
-                // Imprimir dados
-                System.out.printf("%-30s %-20s %-15s %-25s %-10d%n", 
-                                  titulo, autor, isbn, categoria, quantidade);
+                livros.add(new Livro(titulo, autor, isbn, categoria, quantidade));
+
+            }
+
+            // Ordenar a lista usando bubble sort
+            bubbleSort.bubbleSortMethod(livros);
+
+            // Imprimir cabeçalhos
+            System.out.printf("%-50s %-20s %-15s %-25s %-10s", 
+                              "Título", "Autor", "ISBN", "Categoria", "Quantidade\n");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------");
+
+            for (Livro livro : livros) {
+                System.out.printf("%-50s %-20s %-15s %-25s %-10s\n", 
+                                  livro.getTitulo(), livro.getAutor(), livro.getISBN(), livro.getCategoria(), livro.getQuantidade());
             }
 
         } catch (SQLException e) {
